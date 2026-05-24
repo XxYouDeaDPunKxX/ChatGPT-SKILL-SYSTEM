@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/banner.png" alt="banner" width="100%">
+</p>
+
 # 🧠 GPT Project Skill System
 
 > A small system for loading skills from packages in ChatGPT Projects.
