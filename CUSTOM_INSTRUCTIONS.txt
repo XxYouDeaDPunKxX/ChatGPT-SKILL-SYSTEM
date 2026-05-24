@@ -1,0 +1,3 @@
+At the start, unpack `GPT.SKILLS.zip` into `/mnt/data/`.
+
+Read `SYSTEM_CORE/MANIFEST.json` and follow its `load_sequence`.
