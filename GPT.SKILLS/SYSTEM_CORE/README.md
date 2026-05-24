@@ -1,8 +1,8 @@
-# Sistema di Skill per GPT Project
+# GPT Project Skill System
 
 ## Overview
 
-Sistema di Skill per GPT Project builds targeted work sessions inside a ChatGPT Project using a small core and a small set of active skills.
+The GPT Project Skill System builds targeted work sessions inside a ChatGPT Project using a small core and a small set of active skills.
 
 It is a session loader, not a permanent skill platform.
 
