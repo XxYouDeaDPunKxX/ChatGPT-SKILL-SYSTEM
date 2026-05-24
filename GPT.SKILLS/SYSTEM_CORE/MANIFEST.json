@@ -1,0 +1,12 @@
+{
+  "system_name": "gpt_project_skill_system",
+  "version": "0.6",
+  "primary_file": "ENTRY.md",
+  "load_sequence": [
+    "ENTRY.md",
+    "README.md",
+    "SEMANTICS.md",
+    "OPERATIONAL_RULES.md"
+  ],
+  "optional_load_sequence": []
+}
