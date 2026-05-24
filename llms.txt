@@ -1,0 +1,23 @@
+# GPT Project Skill System
+
+Project page:
+https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/
+
+Repository:
+https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM
+
+Summary:
+GPT Project Skill System is a small package workflow for loading explicit, session-scoped skills inside ChatGPT Projects.
+
+Coverage:
+- fully covers semantically textual skills
+- partially covers tool-mediated skills
+- does not autonomously cover infrastructure skills
+
+Main commands:
+- SKILL CORE UNPACK
+- SKILL <name> UNPACK
+- SKILL <name> LOAD
+
+Machine-readable manifest:
+https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/raw-manifest.json

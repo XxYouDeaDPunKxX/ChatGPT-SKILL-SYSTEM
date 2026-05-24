@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPT Project Skill System</title>
+  <meta name="description" content="A small package workflow for loading explicit, session-scoped skills inside ChatGPT Projects.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/">
+  <link rel="alternate" type="text/plain" href="https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/llms.txt" title="LLM-readable index">
+  <link rel="alternate" type="application/json" href="https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/raw-manifest.json" title="Machine-readable manifest">
+  <meta property="og:title" content="GPT Project Skill System">
+  <meta property="og:description" content="Explicit ZIP-based skill packages for focused ChatGPT Project sessions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/">
+  <meta property="og:image" content="https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/og-image.svg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b1117'/%3E%3Cpath d='M10 12h44v8H10zm0 16h26v8H10zm0 16h38v8H10z' fill='%237dd3fc'/%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "GPT Project Skill System",
+    "description": "A small package workflow for loading explicit, session-scoped skills inside ChatGPT Projects.",
+    "url": "https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/",
+    "mainEntityOfPage": "https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/",
+    "codeRepository": "https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "programmingLanguage": ["Python", "Markdown", "HTML"],
+    "runtimePlatform": "ChatGPT Projects",
+    "applicationCategory": "DeveloperApplication",
+    "isAccessibleForFree": true,
+    "author": {"@type": "Person", "name": "XxYouDeaDPunKxX"},
+    "about": ["ChatGPT Projects", "skill packages", "session-scoped context", "ZIP packaging"],
+    "keywords": "ChatGPT Projects, skill packages, GPT Project Skill System, session loader, ZIP skills"
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1117;
+      --panel: #111923;
+      --panel-2: #162232;
+      --text: #e5edf3;
+      --muted: #94a3b3;
+      --line: #334155;
+      --line-soft: rgba(148, 163, 179, 0.22);
+      --accent: #7dd3fc;
+      --green: #4f9d69;
+      --code-bg: #05080c;
+      --code-text: #c7d2dc;
+      --max: 1440px;
+      --measure: 980px;
+      --s1: 0.618rem;
+      --s2: 1rem;
+      --s3: 1.618rem;
+      --s4: 2.618rem;
+      --s5: 4.236rem;
+      --t2: 1.618rem;
+      --t3: 2.618rem;
+      --t4: 4.236rem;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        linear-gradient(rgba(148, 163, 179, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 179, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 18% 0%, rgba(125, 211, 252, 0.10), transparent 28rem),
+        var(--bg);
+      background-size: 42px 42px;
+    }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: var(--s3); padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
+    .brand { color: var(--text); font-weight: 760; text-decoration: none; }
+    .repo-link { color: var(--muted); font-size: 0.95rem; }
+    .hero { padding: var(--s5) 0 var(--s4); border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 var(--s2); color: var(--accent); font: 760 0.82rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+    h1 { max-width: 1120px; margin: 0; color: var(--text); font-size: clamp(var(--t3), 8vw, var(--t4)); line-height: 0.95; letter-spacing: 0; }
+    .standfirst { max-width: var(--measure); margin: var(--s3) 0 0; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.22rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+    .button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: var(--s1) var(--s3); border: 1px solid var(--line); border-radius: 6px; color: var(--text); background: var(--panel); font-weight: 720; text-decoration: none; }
+    .button.primary { color: #071018; background: var(--accent); border-color: var(--accent); }
+    .page { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: var(--s5); padding: var(--s5) 0; }
+    .toc { position: sticky; top: var(--s3); align-self: start; padding: var(--s3); border: 1px solid var(--line); background: rgba(17, 25, 35, 0.72); }
+    .toc h2 { margin: 0 0 var(--s2); color: var(--muted); font: 760 0.82rem/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+    .toc a { display: block; padding: 0.42rem 0; color: var(--muted); text-decoration: none; }
+    .toc a:hover { color: var(--text); }
+    section { max-width: var(--measure); padding-bottom: var(--s5); }
+    section:last-child { padding-bottom: 0; }
+    h2 { margin: 0 0 var(--s2); color: var(--text); font-size: clamp(var(--t2), 4vw, var(--t3)); line-height: 1.08; letter-spacing: 0; }
+    h3 { margin: var(--s3) 0 var(--s1); color: var(--text); font-size: 1.08rem; }
+    p { margin: 0 0 var(--s2); color: var(--muted); }
+    strong { color: var(--text); }
+    code { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.95em; }
+    .callout { margin: var(--s3) 0; padding: var(--s3); border-left: 4px solid var(--accent); background: var(--panel); }
+    .callout p:last-child { margin-bottom: 0; }
+    .commands, .coverage, .downloads { display: grid; gap: var(--s2); margin-top: var(--s3); }
+    .command, .coverage article, .download { padding: var(--s3); border: 1px solid var(--line); background: var(--panel); }
+    .command pre { margin: 0 0 var(--s1); padding: var(--s2); overflow-x: auto; background: var(--code-bg); color: var(--code-text); font: 0.98rem/1.55 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .command p { margin-bottom: 0; }
+    .coverage h3 { margin-top: 0; color: var(--green); }
+    .download { display: grid; gap: 0.2rem; text-decoration: none; }
+    .download strong { color: var(--text); }
+    .download span { color: var(--muted); }
+    footer { padding: var(--s4) 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.94rem; }
+    .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s2); }
+    .machine-links { display: flex; flex-wrap: wrap; gap: var(--s2); }
+    @media (max-width: 860px) {
+      .top, .page, .footer-row { display: block; }
+      .repo-link { display: inline-block; margin-top: var(--s1); }
+      .toc { position: static; margin-bottom: var(--s4); }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 24px, var(--max)); }
+      .actions { flex-direction: column; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap top">
+    <a class="brand" href="https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM" target="_blank" rel="noopener noreferrer">GPT Project Skill System</a>
+    <a class="repo-link" href="https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+  </header>
+  <main>
+    <div class="wrap hero">
+      <p class="eyebrow">ChatGPT Project skill packages</p>
+      <h1>Reusable skills without turning every chat into a junk drawer.</h1>
+      <p class="standfirst">GPT Project Skill System is a small workflow for uploading skill packages to a ChatGPT Project, unpacking them explicitly, and loading only the skill files needed for the current session.</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM" target="_blank" rel="noopener noreferrer">Open the repository</a>
+        <a class="button" href="https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM/raw/main/dist/GPT.SKILLS.zip" target="_blank" rel="noopener noreferrer">Download the core ZIP</a>
+      </div>
+    </div>
+    <div class="wrap page">
+      <aside class="toc" aria-label="Page sections">
+        <h2>On this page</h2>
+        <a href="#why">Why it exists</a>
+        <a href="#model">How it works</a>
+        <a href="#commands">The commands</a>
+        <a href="#coverage">What it covers</a>
+        <a href="#adapter">Included adapter</a>
+        <a href="#start">Start here</a>
+      </aside>
+      <div class="content">
+        <section id="why">
+          <h2>Why it exists</h2>
+          <p>ChatGPT Projects can hold files and instructions, but they do not provide a clean package workflow for reusable skills.</p>
+          <p>That becomes a problem when the same capability has to be copied from chat to chat: review rules, writing formats, project procedures, reference material, helper scripts, or task-specific instructions.</p>
+          <p>This system adds a small package layer. It does not try to become a plugin platform. It gives a Project a predictable way to receive skills as ZIP files and activate them only when a chat actually needs them.</p>
+        </section>
+        <section id="model">
+          <h2>How it works</h2>
+          <p>You upload one core package to the Project. The core defines the rules: where packages unpack, how manifests are read, what counts as a safe path, and when a skill becomes active.</p>
+          <p>You upload skill packages separately. A skill package can contain instructions, reference files, scripts, templates, PDFs, examples, or other files that the Project environment can use.</p>
+          <div class="callout"><p><strong>The central rule is simple:</strong> a skill file being present is not the same thing as a skill being active.</p></div>
+          <p>A skill ZIP in the Project sources is only a source file. After you unpack it, the skill exists physically under the Project runtime folder. Even then, it is not active. It becomes active only when you explicitly load it.</p>
+        </section>
+        <section id="commands">
+          <h2>The commands</h2>
+          <p>The lifecycle is deliberately small. There is one command to start the core, one command to install a named skill, and one command to activate that installed skill.</p>
+          <div class="commands">
+            <article class="command"><pre><code>SKILL CORE UNPACK</code></pre><p>Starts the system for the current chat. It extracts the core package, reads the core manifest, and loads the core rules.</p></article>
+            <article class="command"><pre><code>SKILL &lt;name&gt; UNPACK</code></pre><p>Installs one skill package by name. The ZIP name, command name, install folder, and manifest <code>skill_name</code> must match.</p></article>
+            <article class="command"><pre><code>SKILL &lt;name&gt; LOAD</code></pre><p>Activates the installed skill in the current chat. Only files declared by the skill manifest for semantic loading enter the session context.</p></article>
+          </div>
+          <p>This separation keeps the session focused. You can keep several skill ZIPs available in a Project without loading all of them into every chat.</p>
+        </section>
+        <section id="coverage">
+          <h2>What it covers</h2>
+          <p>The system is strongest when a skill is mainly semantic: text the model can read and apply inside the current chat.</p>
+          <div class="coverage">
+            <article><h3>Fully covered</h3><p>Semantic text skills: instructions, procedures, writing formats, review rules, prompts, reference files, and other text the model can read directly.</p></article>
+            <article><h3>Partially covered</h3><p>Tool-mediated skills: scripts and local files can be packaged, declared, and made available, but execution still depends on the current Project and Python environment.</p></article>
+            <article><h3>Not autonomous</h3><p>Infrastructure skills: daemons, watchers, external services, dependency installation, background processes, and long-running systems are outside the loader.</p></article>
+          </div>
+        </section>
+        <section id="adapter">
+          <h2>Included adapter</h2>
+          <p>The repository includes <code>skill-adapter</code>, a skill for inspecting external skill candidates before adapting them to this package format.</p>
+          <p>It reports whether a candidate is compatible, blocked, or recoverable. It can identify wrapper folders, unsafe paths, invalid manifests, missing declared files, non-text mounted files, and scripts that should not be loaded as instructions.</p>
+          <p>It does not silently convert packages, install dependencies, or run tools automatically.</p>
+        </section>
+        <section id="start">
+          <h2>Start here</h2>
+          <p>Use the core ZIP first. Add one skill ZIP. Unpack the core. Unpack the skill. Load the skill only when the chat needs it.</p>
+          <div class="downloads">
+            <a class="download" href="https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM/raw/main/dist/GPT.SKILLS.zip" target="_blank" rel="noopener noreferrer"><strong>GPT.SKILLS.zip</strong><span>Core runtime package for Project upload.</span></a>
+            <a class="download" href="https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM/raw/main/dist/skills/skill-adapter.zip" target="_blank" rel="noopener noreferrer"><strong>skill-adapter.zip</strong><span>Inspector for external skill candidates.</span></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="wrap">
+    <div class="footer-row">
+      <span>Community project. Not affiliated with OpenAI.</span>
+      <div class="machine-links" aria-label="Machine-readable project files">
+        <a href="llms.txt">llms.txt</a>
+        <a href="raw-manifest.json">manifest</a>
+        <a href="sitemap.xml">sitemap</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

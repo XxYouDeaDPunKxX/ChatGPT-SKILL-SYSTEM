@@ -1,0 +1,34 @@
+{
+  "name": "GPT Project Skill System",
+  "type": "project-page",
+  "site_root": "https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/",
+  "repository": "https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM",
+  "license": "CC BY-SA 4.0",
+  "description": "A small package workflow for loading explicit, session-scoped skills inside ChatGPT Projects.",
+  "primary_artifacts": [
+    {
+      "name": "GPT.SKILLS.zip",
+      "role": "core runtime package",
+      "url": "https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM/raw/main/dist/GPT.SKILLS.zip"
+    },
+    {
+      "name": "skill-adapter.zip",
+      "role": "candidate skill inspector",
+      "url": "https://github.com/XxYouDeaDPunKxX/ChatGPT-SKILL-SYSTEM/raw/main/dist/skills/skill-adapter.zip"
+    }
+  ],
+  "commands": [
+    "SKILL CORE UNPACK",
+    "SKILL <name> UNPACK",
+    "SKILL <name> LOAD"
+  ],
+  "coverage": [
+    "fully covers semantically textual skills",
+    "partially covers tool-mediated skills",
+    "does not autonomously cover infrastructure skills"
+  ],
+  "discovery": {
+    "llms": "https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/llms.txt",
+    "sitemap": "https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/sitemap.xml"
+  }
+}

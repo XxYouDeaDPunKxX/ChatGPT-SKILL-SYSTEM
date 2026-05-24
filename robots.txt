@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xxyoudeadpunkxx.github.io/ChatGPT-SKILL-SYSTEM/sitemap.xml
